@@ -52,6 +52,7 @@
 \usepackage{glossary-longragged}
 \setlength{\glsdescwidth}{1.25\textwidth}%
 \setglossarystyle{longragged}
+\usepackage[none]{hyphenat}
 
 \renewcommand{\glossaryname}{LIST OF ABBREVIATIONS AND SYMBOLS}
 
@@ -65,7 +66,7 @@
 \cftsetindents{chapter}{0em}{6.5em}
 \setlength{\cftbeforechapskip}{0pt}
 
-\renewcommand{\contentsname}{\textbf{CONTENTS}}
+\renewcommand{\contentsname}{CONTENTS}
 
 \renewcommand{\cftloftitlefont}{\pagebreak\hfill\MakeTextUppercase}
 \renewcommand{\cftafterloftitle}{\hfill}
@@ -138,7 +139,7 @@
   \begin{center}
     \begin{doublespace}
     \renewcommand{\and}{\NoCaseChange{\\}}
-    \MakeTextUppercase{\@title} \linebreak \linebreak
+    \@title \linebreak \linebreak
     by \linebreak
     \MakeTextUppercase{\@author}
     \begin{singlespace}
@@ -172,27 +173,29 @@
     \begin{frontmatter}
 
 \topskip=1in
-    \chapter*{\textbf{ABSTRACT}}
+    \chapter*{{ABSTRACT}}
     \addcontentsline{toc}{chapter}{ABSTRACT}
 \topskip=-1in
 
     \@abstract
     
 \topskip=1in
-    \chapter*{\textbf{DEDICATION}}
+    \chapter*{{DEDICATION}}
     \addcontentsline{toc}{chapter}{DEDICATION} 
     \topskip=-1in
+    \leftskip=2em
     \@dedication
+    
 %\pagebreak
 \renewcommand{\glossarypreamble}{\topskip=-1in}
 \topskip=1in
     %% Print everything in the glossary.
     \glsaddall
-    \printglossary[toctitle={LIST OF ABBREVIATIONS AND SYMBOLS},title={\textbf{LIST OF ABBREVIATIONS AND SYMBOLS}}]
+    \printglossary[toctitle={LIST OF ABBREVIATIONS AND SYMBOLS},title={{LIST OF ABBREVIATIONS AND SYMBOLS}}]
     \glsresetall
 
 
-    \chapter*{\textbf{ACKNOWLEDGMENTS}}
+    \chapter*{{ACKNOWLEDGMENTS}}
     \addcontentsline{toc}{chapter}{ACKNOWLEDGMENTS}
 
     \@acknowledgments
@@ -205,21 +208,21 @@
       \tableofcontents
     \end{spacing}
 
-\renewcommand{\listtablename}{\textbf{LIST OF TABLES}}
-        \begin{spacing}{1}
-\renewcommand{\cftlottitlefont}{\vspace*{0in}\hspace{.40\linewidth}\MakeTextUppercase}  
-\pagebreak
-\addcontentsline{toc}{chapter}{LIST OF TABLES}
-    \listoftables 
-    \end{spacing}
+\renewcommand{\listtablename}{{LIST OF TABLES}}
+        \begin{spacing}{2}
+            \renewcommand{\cftlottitlefont}{\vspace*{0in}\hspace{.40\linewidth}\MakeTextUppercase}  
+            \pagebreak
+            \addcontentsline{toc}{chapter}{LIST OF TABLES}
+            \listoftables 
+        \end{spacing}
      
 
-		\renewcommand{\listfigurename}{\textbf{LIST OF FIGURES}}
+\renewcommand{\listfigurename}{{LIST OF FIGURES}}
 \renewcommand{\cftloftitlefont}{\vspace*{0in}\hspace{.40\linewidth}\MakeTextUppercase}  
 \pagebreak
 \addcontentsline{toc}{chapter}{LIST OF FIGURES}
-\begin{spacing}{1}
-\listoffigures
+\begin{spacing}{2}
+    \listoffigures
 \end{spacing}
 
     \end{frontmatter}
@@ -231,7 +234,7 @@
   \singlespacing
   \null \vfill
   \begin{center}
-    Copyright \@author\,\@gradyear \\
+    Copyright \@author\, \@gradyear \\
     ALL RIGHTS RESERVED
   \end{center}
 }
@@ -271,10 +274,10 @@
   {
     \vspace*{50\p@}%
     \begin{center}
-      \MakeTextUppercase{ \textbf{ \@chapapp\space \thechapter } }
+      \MakeTextUppercase{ { \@chapapp\space \thechapter } }
       \linebreak
       \begin{spacing}{1}
-      \MakeTextUppercase{ \textbf{ ##1 } }
+      \MakeTextUppercase{ { ##1 } }
       \end{spacing}
     \end{center}
   }
@@ -282,7 +285,7 @@
   \renewcommand{\@makeschapterhead}[1]
   {
     \begin{center}
-      \MakeTextUppercase{ \textbf{ ##1 } }
+      \MakeTextUppercase{ { ##1 } }
     \end{center}
   }
   
